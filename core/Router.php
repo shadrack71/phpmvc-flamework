@@ -30,17 +30,55 @@ class Router {
       $method =    $this-> request->getMethod();
       $callback = $this -> routes[$method][$path] ?? false;
       if($callback === false){
-        echo 'Not Found';
-        exit();
+        return  'Not Found';
+        
 
       }
+      if(is_string($callback)){
+        return $this->renderView($callback);
+      }else{
 
-      echo call_user_func($callback);
+
+        return  call_user_func($callback);
+      }
+
 
 
         // var_dump($_SERVER);
         
     }
+
+    public function renderView($view){
+
+      $viewContent = $this->renderViewOnly($view);
+      $layoutContent = $this->layoutContent();
+
+      return str_replace('{{*content*}}', $viewContent , $layoutContent);
+      
+
+    }
+
+    protected  function layoutContent(){
+
+      ob_clean();
+
+      include_once Application::$ROOT_DIR."/views/layout/main.php";
+
+      return ob_get_clean();
+
+
+
+    }
+    protected function renderViewOnly($view){
+
+      ob_clean();
+
+      include_once Application::$ROOT_DIR."/views/$view.php";
+
+      return ob_get_clean();
+
+    }
+
 
 
 
