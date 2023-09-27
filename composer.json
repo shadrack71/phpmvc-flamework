@@ -1,0 +1,19 @@
+{
+    "name": "shadrack71/phpmvc",
+    "description": "This is a new php framework",
+    "autoload": {
+        "psr-4": {
+            "Shadrack71\\Phpmvc\\": "src/",
+            "app\\":"./"
+
+        }
+    },
+    "authors": [
+        {
+            "name": "shadrack",
+            "email": "shadrackkinsimba@gmail.com"
+        }
+    ],
+   
+    "require": {}
+}
