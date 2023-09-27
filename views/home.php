@@ -1,6 +1,1 @@
-<h1>
-
-    home page
-
-
-    </h2>
+<h1> home page <?php  echo $name; ?></h1>

@@ -8,11 +8,15 @@ public static $ROOT_DIR;
 
 public Router $router;
 public Request $request;
-// public Router $router;
+
+public  Response $response;
+
+public static Application $app;
 
 public function __construct($root_dir){
     
     self::$ROOT_DIR = $root_dir;
+    self::$app = $this;
 
 
     $this-> request = new Request();
