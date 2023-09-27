@@ -5,18 +5,9 @@ use app\core\application;
 
 $app = new Application(dirname(__DIR__));
 
-$app -> router->get('/',function(){
-    return " hello world";
+$app -> router->get('/','home');
+$app -> router->get('/contact','contact');
 
-
-});
-
-
-$app -> router->get('/',function(){
-    return " hello world";
-
-
-});$app -> router->get('/contact','contact');
 
 
 

@@ -34,9 +34,15 @@
         </div>
     </nav>
 
+    <div>
+
+        {{content}}
 
 
-    {{*content*}}
+    </div>
+
+
+
 
 
 
