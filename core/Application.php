@@ -17,12 +17,9 @@ public function __construct($root_dir){
     
     self::$ROOT_DIR = $root_dir;
     self::$app = $this;
-
-
     $this-> request = new Request();
-    
+    $this-> response  = new Response();
     $this-> router = new Router($this->request);
-
 
 }
 

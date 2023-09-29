@@ -2,17 +2,18 @@
 
 namespace app\core;
 
+use app\core\Response;
+
 class Router {
 
 
     protected array $routes = [];
     protected Request $request;
-    
-
-
+    private Response $response;
 
     public function __construct (Request $request){
         $this-> request = $request;
+        $this-> response  = new Response();
 
         
     }
@@ -28,7 +29,7 @@ class Router {
 
       public function post($path,$callback){
 
-        $this -> routes['post'][$path] = $callback;
+      $this -> routes['post'][$path] = $callback;
         
     
     }
@@ -43,29 +44,23 @@ class Router {
       // switch ($callback) {
       //   case  false :
       //     Response::setStatusCode(404);
+         
       //     return  $this ->renderContent($this->renderViewOnly('_404'));
+          
+
       //   case is_string($callback):
+
       //     return $this->renderView($callback);
 
-      //   case is_array($callback):
+  
+      //   case is_callable($callback):
 
-
-      //   case is_callable($callback) :
-
-
-      //  default:
-
-
+      //       $callback[0] = new $callback[0];
         
+      //       return  call_user_func($callback);
 
 
-
-
-
-
-
-
-
+      // //  default:
 
       // }
       
@@ -79,32 +74,16 @@ class Router {
         
 
       }
+
+
       if(is_string($callback)){
         return $this->renderView($callback);
-      }
-      
-      // else if(is_array($callback)){
-
-      //   $controllerClass = $callback[0];
-      //   $controllerMethod = $callback[1];
-        
-
-      //   return  $controllerClass :: $controllerMethod();
-
-      //   // echo $controllerClass;
-
-      // }
-      
-      else {
+      }else {
 
         $callback[0] = new $callback[0];
         
         return  call_user_func($callback);
       }
-
-
-
-        // var_dump($_SERVER);
         
     }
 

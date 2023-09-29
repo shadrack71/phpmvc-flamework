@@ -2,7 +2,7 @@
 
 namespace app\Controllers;
 
-use app\core\Request as request;
+
 
 class SiteController extends Controller{
 
