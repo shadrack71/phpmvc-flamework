@@ -6,6 +6,8 @@ class Application{
 
 public static $ROOT_DIR;
 
+public $layout = "main";
+
 public Router $router;
 public Request $request;
 
@@ -21,6 +23,18 @@ public function __construct($root_dir){
     $this-> response  = new Response();
     $this-> router = new Router($this->request);
 
+}
+
+
+public function setterLayout($layout){
+
+    $this->layout = $layout;
+
+}
+public function getLayout(){
+
+  return $this->layout;
+  
 }
 
 

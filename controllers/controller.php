@@ -8,7 +8,10 @@ use app\core\Response;
 use app\core\Application;
 
 class Controller{
+
+   
     protected  Request $request;
+
     protected  Response $response;
     protected  static SiteController $sitecontroller;
 
@@ -27,6 +30,11 @@ class Controller{
        return Application::$app -> router-> renderView($view, $params);
 
     }
+
+    public function setLayout($layout){
+
+    Application::$app->setterLayout($layout);
+}
 
 
 

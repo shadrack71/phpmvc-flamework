@@ -109,9 +109,11 @@ class Router {
 
     protected  function layoutContent(){
 
+      $layout = Application::$app->getLayout();
+
       ob_start();
 
-      require_once Application::$ROOT_DIR."/views/layout/main.php";
+      require_once Application::$ROOT_DIR."/views/layout/$layout.php";
 
       return ob_get_clean();
 

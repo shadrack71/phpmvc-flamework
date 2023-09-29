@@ -29,9 +29,9 @@ class Request {
         if($this -> getMethod() ==='get'){
             foreach($_GET as $key => $value){
                 $body[$key] = filter_input(INPUT_GET , $key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                return $body;
-
+                
             }
+            return $body;
 
 
 
@@ -43,9 +43,9 @@ class Request {
 
                 $body[$key] = filter_input(INPUT_POST , $key, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 
-                return $body;
-
+                
             }
+            return $body;
 
 
 

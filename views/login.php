@@ -15,14 +15,6 @@
 
 <body>
 
-
-
-
-
-
-
-
-
     <div class="container">
 
         <div class="modal-dialog" role="document">
@@ -53,21 +45,29 @@
                                 <div class="or-line"></div>
                                 <div class="or">OR</div>
                             </div>
-                            <div class="loginbox-textbox">
-                                <input type="text" class="form-control" placeholder="Email">
-                            </div>
-                            <div class="loginbox-textbox">
-                                <input type="text" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="loginbox-forgot">
-                                <a href="">Forgot Password?</a>
-                            </div>
-                            <div class="loginbox-submit">
-                                <input type="button" class="btn btn-primary btn-block" value="Login">
-                            </div>
-                            <div class="loginbox-signup">
-                                <a href="#register.html">Sign Up With Email</a>
-                            </div>
+
+                            <form action="/login" method="post" name="loginForm">
+
+
+
+
+
+                                <div class="loginbox-textbox">
+                                    <input type="text" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="loginbox-textbox">
+                                    <input type="password" class="form-control" placeholder="Password">
+                                </div>
+                                <div class="loginbox-forgot">
+                                    <a href="">Forgot Password?</a>
+                                </div>
+                                <div class="loginbox-submit">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                                </div>
+                                <div class="loginbox-signup">
+                                    <a href="/register">Sign Up With Email</a>
+                                </div>
+                            </form>
                         </div>
 
                     </div>

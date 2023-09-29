@@ -29,7 +29,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="m-sm-4">
-                                <form>
+                                <form method="post" action="/register" name="registerForm">
                                     <div class="form-group">
                                         <label>Name</label>
                                         <input class="form-control form-control-lg" type="text" name="name"
@@ -51,8 +51,8 @@
                                             placeholder="Enter password">
                                     </div>
                                     <div class="text-center mt-3">
-                                        <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>
-                                        <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+
+                                        <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
                                     </div>
                                 </form>
                             </div>
