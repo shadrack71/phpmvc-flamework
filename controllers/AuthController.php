@@ -1,19 +1,24 @@
 <?php
 
 namespace app\controllers;
+use app\models\RegisterModal;
 
 
 
 class AuthController extends controller {
+    
     use \app\core\Validation;
 
 protected $layout = "auth";
 public $requestData;
+protected $registerModal;
 
 public function __construct(){
     parent::__construct();
 
-    $this -> setLayout( $this->layout) ;
+    $this -> setLayout( $this->layout);
+
+   $this -> registerModal =  new RegisterModal();
    
 
 
@@ -43,7 +48,21 @@ public function loginStore(){
 
 public function registerStore( ){
 
- $this -> requestData =   $this -> validateBody($this ->request->getBoby());
+$requestData = $this ->validateBody($this ->request->getBoby());
+
+if (!$requestData['error']){
+    $this -> registerModal;
+    var_dump($requestData );
+
+
+}else{
+
+    
+    var_dump($requestData );
+
+    
+}
+
     
     
     
@@ -52,7 +71,7 @@ public function registerStore( ){
     
     
 
-    var_dump($this -> requestData );
+    // var_dump($requestData );
 }
 
 

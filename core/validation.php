@@ -16,6 +16,7 @@ trait Validation {
 
             if(empty($value)){
                 $this -> formData[$key]['errormsg'] = "$key field required";
+                
             }
         }
        
