@@ -52,13 +52,17 @@ $requestData = $this ->validateBody($this ->request->getBoby());
 
 if (!$requestData['error']){
     $this -> registerModal;
-    var_dump($requestData );
+
+    echo "data saved";
+    //var_dump($requestData );
 
 
 }else{
 
+   return  self::render("register", $requestData);
+
     
-    var_dump($requestData );
+    //var_dump($requestData );
 
     
 }

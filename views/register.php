@@ -29,32 +29,72 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="m-sm-4">
+
                                 <form method="post" action="/register" name="registerForm">
                                     <div class="form-group">
                                         <label>Name</label>
                                         <input class="form-control form-control-lg" type="text" name="name"
                                             placeholder="Enter your name">
+
+                                        <?php 
+
+                                            if (isset($paramsData['name']['errormsg'])){
+                                                echo $paramsData['name']['errormsg'];
+                                            }
+                                            ?>
+
+
                                     </div>
                                     <div class="form-group">
                                         <label>Company</label>
                                         <input class="form-control form-control-lg" type="text" name="company"
                                             placeholder="Enter your company name">
+
+                                        <?php 
+
+                                            if (isset($paramsData['company']['errormsg'])){
+                                                echo $paramsData['company']['errormsg'];
+                                            }
+
+                                            ?>
+
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
                                         <input class="form-control form-control-lg" type="email" name="email"
                                             placeholder="Enter your email">
+
+                                        <?php 
+
+                                            if (isset($paramsData['email']['errormsg'])){
+                                                echo $paramsData['email']['errormsg'];
+                                            }
+                                            ?>
+
                                     </div>
                                     <div class="form-group">
                                         <label>Password</label>
                                         <input class="form-control form-control-lg" type="password" name="password"
                                             placeholder="Enter password">
+
+                                        <?php 
+
+                                            if (isset($paramsData['password']['errormsg'])){
+                                                echo $paramsData['password']['errormsg'];
+                                            }
+
+                                            
+                                            ?>
+
                                     </div>
                                     <div class="text-center mt-3">
 
                                         <button type="submit" class="btn btn-lg btn-primary">Sign up</button>
                                     </div>
                                 </form>
+
+
+
                             </div>
                         </div>
                     </div>
