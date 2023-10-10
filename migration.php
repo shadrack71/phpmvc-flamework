@@ -1,7 +1,6 @@
 <?php
 
-use app\controllers\AuthController;
-use app\Controllers\SiteController;
+
 use app\core\application;
 
 require_once __DIR__.'/vendor/autoload.php';

@@ -11,7 +11,7 @@ class RegisterModal extends Model {
     
 
     public function __construct(){
-        new Model();
+         // new Model();
  
     }
 

@@ -15,6 +15,7 @@ public Database $DB;
 public Request $request;
 
 public  Response $response;
+public  Session $session;
 
 public static Application $app;
 
@@ -26,6 +27,7 @@ public function __construct($root_dir, array $config){
     $this-> response  = new Response();
     $this-> router = new Router($this->request);
     $this-> DB  = new Database($config['DB']);
+    $this-> session  = new Session();
 
 }
 

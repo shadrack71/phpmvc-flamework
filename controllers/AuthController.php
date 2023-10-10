@@ -1,24 +1,34 @@
 <?php
 
 namespace app\controllers;
-use app\models\RegisterModal;
+
+use app\core\Application;
+use app\models\User;
+use \app\core\DbModal\DataBind;
+
+
+
+
 
 
 
 class AuthController extends controller {
     
     use \app\core\Validation;
+    
+   
 
 protected $layout = "auth";
 public $requestData;
-protected $registerModal;
+protected $registerUser;
 
 public function __construct(){
     parent::__construct();
 
     $this -> setLayout( $this->layout);
+    
 
-   $this -> registerModal =  new RegisterModal();
+   
    
 
 
@@ -51,18 +61,42 @@ public function registerStore( ){
 $requestData = $this ->validateBody($this ->request->getBoby());
 
 if (!$requestData['error']){
-    $this -> registerModal;
 
-    echo "data saved";
-    //var_dump($requestData );
+    new DataBind($requestData);
+    $registerUser = new User($requestData) ;
+
+    
+    if($registerUser -> save()){
+
+
+        Application::$app->session->setFlashMessages('success',"Successfully registered");
+        Application::$app->response->redirect("/");
+
+        
+
+
+    }
+    
+
+    
+
+    
+
+
+    // // $this -> registerModal;
+
+    // echo $this ->firstname;
+    
+    // // var_dump($requestData);
+    
 
 
 }else{
 
+    // var_dump($requestData );
    return  self::render("register", $requestData);
 
     
-    //var_dump($requestData );
 
     
 }

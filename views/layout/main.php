@@ -1,3 +1,9 @@
+<?php  
+use app\core\Application;
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -41,6 +47,26 @@
     </nav>
 
     <div>
+
+        <?php
+
+        $flashmsg = Application::$app->session->getFlashMessages('success');
+
+        if(!empty($flashmsg)):?>
+
+        <div class="alert alert-success">
+            <?php echo $flashmsg?>
+        </div>
+        <?php  
+        endif;
+        
+        
+        ?>
+
+
+
+
+
 
         {{content}}
 

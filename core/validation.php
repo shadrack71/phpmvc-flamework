@@ -66,9 +66,7 @@ trait Validation {
             TO-Do
 
             adding more rule on validations and filtering the data
-            
-            
-            
+        
             
             */
 
@@ -79,12 +77,14 @@ trait Validation {
         if(!empty($this -> formData) ){
 
             $this -> formData["error"] = true;
+            $this -> formData["oldBody"] = $arraybody;
             return $this -> formData;
 
 
         }else{
             $this -> formData["error"] = false;
             $this -> formData["body"] = $arraybody;
+            
             return $this -> formData;
 
         }

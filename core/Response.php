@@ -11,4 +11,10 @@ public static function setStatusCode(int $status){
 
 }
 
+
+public function redirect($url){
+
+     header('Location:'. $url);
+}
+
 }
