@@ -4,6 +4,9 @@ namespace app\core;
 
 class Session {
 protected const FLASH_KEY = 'flash_messages';
+public  string $uName = "";
+
+
 
 public function __construct(){
 
@@ -19,6 +22,28 @@ public function __construct(){
 
 
 }
+
+public function setSession($userId,$userEmail,$userName){
+    $this -> uName = $userName;
+    $_SESSION["userSession"][$userId] = [
+        "userId"=> $userId,
+        "userEmail" => $userEmail 
+    ];
+
+
+}
+
+public function  getUserSession($userId):array{
+
+    return $_SESSION ["userSession"][$userId];
+
+}
+// public function  remevoUserSession($userId){
+
+//     unset ($this -> getUSerSession($userId));
+    
+// }
+
 
 
 public function setFlashMessages($key,$flashmsg){

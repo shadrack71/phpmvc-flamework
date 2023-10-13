@@ -1,3 +1,9 @@
+<?php  
+use app\core\Application;
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +22,20 @@
 <body>
 
     <div class="container">
+        <?php
+
+
+        $errorMsg = $paramsData['msg'];
+        if(!empty($errorMsg)):?>
+
+        <div class="alert alert-danger">
+            <?php echo $errorMsg?>
+        </div>
+        <?php  
+        endif;
+        
+        
+        ?>
 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -53,16 +73,29 @@
 
 
                                 <div class="loginbox-textbox">
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" placeholder="Email" name="email">
+
+                                    <?php 
+
+                                            if (isset($paramsData['email']['errormsg'])){
+                                                echo $paramsData['email']['errormsg'];
+                                            }
+                                            ?>
                                 </div>
-                                <div class="loginbox-textbox">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                <div class=" loginbox-textbox">
+                                    <input type="password" class="form-control" placeholder="Password" name="password">
+                                    <?php 
+
+                                            if (isset($paramsData['password']['errormsg'])){
+                                                echo $paramsData['password']['errormsg'];
+                                            }
+                                            ?>
                                 </div>
                                 <div class="loginbox-forgot">
                                     <a href="">Forgot Password?</a>
                                 </div>
                                 <div class="loginbox-submit">
-                                    <input type="submit" class="btn btn-primary btn-block" value="Login">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Login" name="submit">
                                 </div>
                                 <div class="loginbox-signup">
                                     <a href="/register">Sign Up With Email</a>

@@ -3,6 +3,7 @@
 namespace app\core;
 
 use app\core\Database;
+use app\core\DbModal\DataBind;
 
 class Application{
 
@@ -16,6 +17,7 @@ public Request $request;
 
 public  Response $response;
 public  Session $session;
+// public  DataBind $dataBind;
 
 public static Application $app;
 
@@ -28,6 +30,7 @@ public function __construct($root_dir, array $config){
     $this-> router = new Router($this->request);
     $this-> DB  = new Database($config['DB']);
     $this-> session  = new Session();
+    
 
 }
 

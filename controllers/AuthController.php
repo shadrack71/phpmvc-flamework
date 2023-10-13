@@ -2,10 +2,11 @@
 
 namespace app\controllers;
 
-use app\core\Application;
 use app\models\User;
-use \app\core\DbModal\DataBind;
-
+use app\core\Application;
+use app\core\DbModal\DataBind;
+use app\core\DbModal\LoginBind;
+use app\core\DbModal\SignUpBind;
 
 
 
@@ -15,6 +16,9 @@ use \app\core\DbModal\DataBind;
 class AuthController extends controller {
     
     use \app\core\Validation;
+    
+    
+
     
    
 
@@ -26,15 +30,8 @@ public function __construct(){
     parent::__construct();
 
     $this -> setLayout( $this->layout);
-    
-
-   
-   
-
-
+  
 }
-
-
 
 
 public function login(){
@@ -47,23 +44,42 @@ public function register(){
     return  self::render('register');
 }
 
-
-
-
-
 public function loginStore(){
 
-    return  "login store";
+    $requestLoginData = $this ->validateBody($this ->request->getBoby());
+    if (!$requestLoginData['error']){
+        $loginUser = new User();
+        $loginUser -> BindLoginUserData($requestLoginData);
+        $authResultArray  =   $loginUser -> userLogin();
+        
+         if($authResultArray['status'] == "success"){
+        //     var_dump( $authResultArray);
+        // exit;
+            Application::$app->session->setFlashMessages('success',"Successfully login");
+            Application::$app->response->redirect("/");
+
+         } else{
+             return  self::render("login", $authResultArray);
+                // var_dump( $authResultArray);
+         }
+
+}else{
+
+   return  self::render("login", $requestLoginData);
+    
+    }
+
 }
 
-public function registerStore( ){
+public function registerStore(){
 
 $requestData = $this ->validateBody($this ->request->getBoby());
 
 if (!$requestData['error']){
 
-    new DataBind($requestData);
-    $registerUser = new User($requestData) ;
+    
+    $registerUser = new User() ;
+    $registerUser -> BindRegisterUserData($requestData);
 
     
     if($registerUser -> save()){
@@ -71,9 +87,6 @@ if (!$requestData['error']){
 
         Application::$app->session->setFlashMessages('success',"Successfully registered");
         Application::$app->response->redirect("/");
-
-        
-
 
     }
     
