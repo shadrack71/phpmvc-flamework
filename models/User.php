@@ -5,7 +5,6 @@ namespace app\models;
 use app\core\DbModal\DbModal;
 class User extends DbModal{
 
-
     protected static $tableattributes = [ 'email', 'password','firstname', 'lastname',  'status'];
 
     public function getTableName(): string {
