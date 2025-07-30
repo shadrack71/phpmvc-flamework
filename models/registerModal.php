@@ -8,7 +8,7 @@ use app\core\Model;
 
 class RegisterModal extends Model {
 
-    
+
 
     public function __construct(){
          // new Model();
