@@ -1,7 +1,6 @@
 <?php
 
 namespace app\core;
-
 use app\core\Database;
 use app\core\DbModal\DataBind;
 
