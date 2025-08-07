@@ -1,6 +1,5 @@
 <?php
 
-
 use app\core\application;
 
 require_once __DIR__.'/vendor/autoload.php';
