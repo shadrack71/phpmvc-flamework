@@ -1,6 +1,5 @@
 <?php 
 
-
 namespace app\models;
 use app\core\DbModal\DbModal;
 class User extends DbModal{
