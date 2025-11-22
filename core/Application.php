@@ -10,6 +10,7 @@ public static $ROOT_DIR;
 
 public $layout = "main";
 
+    
 public Router $router;
 public Database $DB;
 public Request $request;
